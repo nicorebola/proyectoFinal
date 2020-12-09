@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "572329899184",
+    "project_id": "finalizarpedido-e2eca",
+    "storage_bucket": "finalizarpedido-e2eca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:572329899184:android:3ab428550725a57bceb775",
+        "android_client_info": {
+          "package_name": "com.example.push_finalizar_pedido"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "572329899184-164u1ab8cgmgb7ofvik92v1k86utog9j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeod3Qr4CequUae-kCPSmN3y9EMiTnxYM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "572329899184-164u1ab8cgmgb7ofvik92v1k86utog9j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

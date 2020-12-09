@@ -9,15 +9,17 @@ import javax.swing.JTable;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
+import Notificaciones.FinalizarPedido.PushNotifictionHelper;
 
 public class GestorFinalizarPedido extends  GestorHibernate{
     private detalle_pedido  model;  //Detalle o pedido VER
+    PushNotifictionHelper pushNot = new PushNotifictionHelper();
   //  private GestorFinalizarPedido gestorFinalizarPedido = new GestorFinalizarPedido();
  //   private GestorVistaFinalizarPedido gestorVistaFinalizarPedido = new GestorVistaFinalizarPedido();
    
+   
     
-    
+ 
     public detalle_pedido  getModel() {
         return model;
     }
@@ -181,17 +183,20 @@ public class GestorFinalizarPedido extends  GestorHibernate{
 //////////////////////Metodos propios de CU
     
     
-    public void finalizar() {
+    public void finalizar() throws Exception{
         //this.getModel().finalizar();  //metodo en el modelo que finaliza el pedido
-        this.actualizarObjeto();
-        this.mostrarPantalla();
-        this.enviarNotificacion();
+        //this.actualizarObjeto();
+       
+        //this.getModel().notificado();  //cambia al notificado
+       
+      
+      PushNotifictionHelper.pushFCMNotification("cGOrtlJwPWQ:APA91bH6DpNbjyDn76_DOuq56G7YqNyUooUOtZvGIr7mCdEmJEj58KcdBTrAR1zOCm50Igo6L7yOY7iiZjHHJNZvdzE0nWpUuphbGXcQ2e6itsTN6sLka27_sw2tx8XoBRZgC0HL2-cB"," 2"," Coca Cola con Hamburgesa");
+    ;
         
         
     }
     public void notificado (){
-        //this.getModel().notificado();  //cambia al notificado
-        this.actualizarObjeto();
+         this.actualizarObjeto();
     }
 
     private void mostrarPantalla() {
@@ -199,6 +204,7 @@ public class GestorFinalizarPedido extends  GestorHibernate{
     }
 
     private void enviarNotificacion() {
-       //Abrir la pantalla del celular
+       // cGOrtlJwPWQ:APA91bH6DpNbjyDn76_DOuq56G7YqNyUooUOtZvGIr7mCdEmJEj58KcdBTrAR1zOCm50Igo6L7yOY7iiZjHHJNZvdzE0nWpUuphbGXcQ2e6itsTN6sLka27_sw2tx8XoBRZgC0HL2-cB
+       
     }
 }
