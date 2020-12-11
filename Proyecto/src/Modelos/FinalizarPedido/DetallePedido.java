@@ -33,6 +33,18 @@ public class DetallePedido {
     @Column(columnDefinition = "INT")
     private int cantidad;
     
+//   @ManyToOne (targetEntity = Estado.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
+//   private Estado estado;
+   
+   //int valorEstado = (int) estado.getIdEstado();
+   // esto es una boludes lo que intente, peero por ahi nos ayuda jaja
+    
+     
+    
+//    public void setEstado(Estado estado) {
+//        this.estado = estado;
+//    }
+    
     
     
 //    @OneToMany (targetEntity = Mesa.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
@@ -51,6 +63,10 @@ public class DetallePedido {
         
     }
   
+    
+//    public Estado getEstado() {
+//        return estado;
+//    }
     
     
     public long getId() {
@@ -97,13 +113,7 @@ public class DetallePedido {
     public int getCodigo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-//    public void setEstado(Estado estado) {
-//        this.estado = estado;
-//    }
-//    
-//    public Estado getEstado() {
-//        return estado;
-//    }
+
     
 //    public void notificado() {
 //       this.setEstado(4);
@@ -118,10 +128,11 @@ public class DetallePedido {
         this.nombre_menu = nombre_menu;
         this.cantidad = cantidad;
 //        this.mesa = mesa;
-      //  this.estado = estado;
+//        this.estado = estado;
     }
    
-//se rompe con los estados, la otra es hardcodear los estados jeje
+//se rompe con los estados, la otra es hardcodear los estados jeje.
+    //jajaj si che, lo deje igualmente para ver, estuve intentando varias cosas, pero no hay forma
     
     
    }

@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 import org.hibernate.*;
 import org.hibernate.cfg.*;
 
+
 public class HibernateUtil  {
     public static SessionFactory sessionFactory;
     public static Session session;
@@ -14,7 +15,7 @@ public class HibernateUtil  {
            try{
                 conf.setProperty("hibernate.connection.driver_class","org.postgresql.Driver");
                 conf.setProperty("hibernate.dialect","org.hibernate.dialect.PostgreSQLDialect");                 
-                conf.setProperty("hibernate.connection.url","jdbc:postgresql://localhost:5432/pedidos");
+                conf.setProperty("hibernate.connection.url","jdbc:postgresql://localhost:5434/pedidos");
             }
             catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Error de Base de Datos Nº 2001");
@@ -22,7 +23,7 @@ public class HibernateUtil  {
             
             conf.setProperty("hibernate.connection.username","postgres");
 //            conf.setProperty("hibernate.connection.password","postgres");
-            conf.setProperty("hibernate.connection.password","Admin1234");
+            conf.setProperty("hibernate.connection.password","123");
             
            
 //            try{

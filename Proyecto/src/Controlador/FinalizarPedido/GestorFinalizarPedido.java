@@ -33,8 +33,8 @@ public class GestorFinalizarPedido extends  GestorHibernate{
     
       public List <DetallePedido> listar(DetallePedido detalle_pedido){   
           Criteria crit = getSession().createCriteria(DetallePedido.class)
-                   .add (Restrictions.eq("nombre_producto",detalle_pedido))  
-                  .add (Restrictions.eq("estado",0));
+                   .add (Restrictions.eq("nombre_producto",detalle_pedido))  ;
+                  //.add (Restrictions.eq("estado",0));
         return crit.list();
     }
  
@@ -101,15 +101,25 @@ public class GestorFinalizarPedido extends  GestorHibernate{
 
         ArrayList<DetallePedido> lista_pedidos = buscarObjetoPedido();
 
+        modelo.addColumn("Nombre producto");
+        modelo.addColumn("Nombre menú");
         modelo.addColumn("Cantidad");
         modelo.addColumn("ID Detalle");
-       modelo.addColumn("Nombre producto");
+       
+       
+       
 
         for (int i = 0; i < lista_pedidos.size(); i++) {
-            Object[] fila = new Object[3];
-            fila[0] = lista_pedidos.get(i).getCantidad();
-            fila[1] = lista_pedidos.get(i).getId();
-            fila[2] = lista_pedidos.get(i).getNombre_producto();
+//            if(lista_pedidos.get(i).getEstado().getIdEstado()== 1){
+//           
+//            }
+            Object[] fila = new Object[4];
+            fila[0] = lista_pedidos.get(i).getNombre_producto();
+            fila[1] = lista_pedidos.get(i).getNombre_menu();
+            fila[2] = lista_pedidos.get(i).getCantidad();
+            fila[3] = lista_pedidos.get(i).getId();
+            
+            
             
 
             modelo.addRow(fila);
@@ -234,7 +244,7 @@ public class GestorFinalizarPedido extends  GestorHibernate{
       
       PushNotifictionHelper.pushFCMNotification("cGOrtlJwPWQ:APA91bH6DpNbjyDn76_DOuq56G7YqNyUooUOtZvGIr7mCdEmJEj58KcdBTrAR1zOCm50Igo6L7yOY7iiZjHHJNZvdzE0nWpUuphbGXcQ2e6itsTN6sLka27_sw2tx8XoBRZgC0HL2-cB"," 2"," Coca Cola con Hamburgesa");
     ;
-        
+        //int[] seleccionados = tblPedido.getSelectedRows();
         
     }
     public void notificado (){
@@ -249,4 +259,6 @@ public class GestorFinalizarPedido extends  GestorHibernate{
        // cGOrtlJwPWQ:APA91bH6DpNbjyDn76_DOuq56G7YqNyUooUOtZvGIr7mCdEmJEj58KcdBTrAR1zOCm50Igo6L7yOY7iiZjHHJNZvdzE0nWpUuphbGXcQ2e6itsTN6sLka27_sw2tx8XoBRZgC0HL2-cB
        
     }
+    
+    
 }

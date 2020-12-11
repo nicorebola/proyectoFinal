@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import org.json.JSONObject;
+//import org.json.JSONObject;
 
 public class PushNotifictionHelper {
 public final static String AUTH_KEY_FCM = "AAAAhUGFNLA:APA91bGBgyp78eCkVOd0TOgQZkiASlaANDCz98wSCKb5dEv12JdpV4hZQW0jU_Q13-O7NFr46d-MKb0IiCHjEPA9q7bjSRwcoLE8iMxHexW3cWUafjo409Jzq5gmNwJ9tAGYHd5ljFkc";
@@ -31,17 +31,17 @@ conn.setRequestMethod("POST");
 conn.setRequestProperty("Authorization","key="+authKey);
 conn.setRequestProperty("Content-Type","application/json");
 
-JSONObject json = new JSONObject();
-json.put("to",userDeviceIdKey.trim());
-JSONObject info = new JSONObject();
-info.put("title", "Mesa N° " + mesa); // Notification title
-info.put("body", "Pedido Listo " + pedido); // Notification body
-json.put("notification", info);
-
-OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-wr.write(json.toString());
-wr.flush();
-conn.getInputStream();
-    System.out.println("Notificacion enviada");
+//JSONObject json = new JSONObject();
+//json.put("to",userDeviceIdKey.trim());
+//JSONObject info = new JSONObject();
+//info.put("title", "Mesa N° " + mesa); // Notification title
+//info.put("body", "Pedido Listo " + pedido); // Notification body
+//json.put("notification", info);
+//
+//OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+//wr.write(json.toString());
+//wr.flush();
+//conn.getInputStream();
+//    System.out.println("Notificacion enviada");
 }
 }
