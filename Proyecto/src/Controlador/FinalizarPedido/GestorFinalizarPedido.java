@@ -80,11 +80,11 @@ public class GestorFinalizarPedido extends  GestorHibernate{
 //    public TipoProyecto getTipoProyecto() {
 //        return this.getModel().getTipoProyecto();
 //    }
-//
+
 //    public void setTipoProyecto(TipoProyecto tipoProyecto) {
 //        this.getModel().setTipoProyecto(tipoProyecto);
 //    }
-//  
+  
 //    public void setDetalle(JTable tbl) {
 //        this.setDetalle(UtilJtable.convertToSet(tbl));
 //    }
@@ -106,6 +106,7 @@ public class GestorFinalizarPedido extends  GestorHibernate{
         modelo.addColumn("Nombre menú");
         modelo.addColumn("Cantidad");
         modelo.addColumn("ID Detalle");
+        modelo.addColumn("Estado");
        
        
        
@@ -119,9 +120,7 @@ public class GestorFinalizarPedido extends  GestorHibernate{
             fila[1] = lista_pedidos.get(i).getNombre_menu();
             fila[2] = lista_pedidos.get(i).getCantidad();
             fila[3] = lista_pedidos.get(i).getId();
-            
-            
-            
+            //fila[4] = lista_pedidos.get(i).getEstado().getIdEstado();
 
             modelo.addRow(fila);
         }
@@ -262,5 +261,9 @@ public class GestorFinalizarPedido extends  GestorHibernate{
        
     }
     
-    
+//    public JTable getjTblPedido() {
+//        return tblPedido;
+//    }
+//    
+//    private javax.swing.JTable tblPedido;
 }

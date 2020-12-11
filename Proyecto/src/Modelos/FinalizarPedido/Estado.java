@@ -14,8 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table (name="estado") 
 public class Estado {
-    @Id 
-    @GeneratedValue(strategy=javax.persistence.GenerationType.AUTO)
+    @Id @GeneratedValue(strategy=javax.persistence.GenerationType.AUTO) 
     private long idEstado;
     
     @Column(columnDefinition = "TEXT")

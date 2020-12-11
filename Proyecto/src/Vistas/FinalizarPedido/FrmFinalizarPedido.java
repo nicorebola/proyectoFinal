@@ -29,6 +29,7 @@ public class FrmFinalizarPedido extends FrmGenerica {
         this.setGestorVista(gestorVista);
         this.onViewOpened();
         this.cargarTabla();
+        //gestorVista.gestor.getjTblPedido();
     }
 
     public void cargarTabla() {
@@ -192,7 +193,7 @@ public class FrmFinalizarPedido extends FrmGenerica {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-       this.getGestorVista().finalizarPedido();
+       //this.getGestorVista().finalizarPedido();
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
 //    void listar(){
@@ -211,7 +212,7 @@ public class FrmFinalizarPedido extends FrmGenerica {
    
 @Override
     public void onViewOpened() {
-     tblPedido.setModel(gestorVista.gestor.obtenerTablaPedidos());
+     //tblPedido.setModel(gestorVista.gestor.obtenerTablaPedidos());
             this.viewOpenedBotones();
            
        
