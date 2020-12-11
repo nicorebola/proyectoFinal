@@ -268,8 +268,9 @@ public class GestorVistaFinalizarPedido  extends GestorVista {
     }
     
     // DESDE ACA
-    public void finalizarPedido(){
-      //  this.gestor.finalizar();
+    public void finalizarPedido() throws Exception{
+      this.gestor.finalizar();
+   
     }
     //public class cerrarVentana{
         public void cerrarVentana(){
