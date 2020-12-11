@@ -10,16 +10,21 @@ import Vistas.MenuPrincipal.FrmPrincipal;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
-import Modelos.FinalizarPedido.detalle_pedido;
+import Modelos.FinalizarPedido.DetallePedido;
+import java.util.List;
 
 public class GestorVistaFinalizarPedido  extends GestorVista {
     GestorHibernate oper;
     FrmFinalizarPedido form;  
-    detalle_pedido detalle;
+    DetallePedido detalle;
     GestorFinalizarPedido gestor= new GestorFinalizarPedido();                  
- 
+  List<DetallePedido> detalle_pedido;
  //Definicion de getter y setter de variables, objetos y gestores   
-    public detalle_pedido getModel() {
+  
+  
+  
+  
+    public DetallePedido getModel() {
         return this.gestor.getModel();
     }
 
@@ -27,7 +32,7 @@ public class GestorVistaFinalizarPedido  extends GestorVista {
     //    this.setModel((detalle_pedido) cmb.getSelectedItem());
     }
 
-    private void setModel(detalle_pedido model) {
+    private void setModel(DetallePedido model) {
         this.getGestor().setModel(model);
     }
 
@@ -47,11 +52,11 @@ public class GestorVistaFinalizarPedido  extends GestorVista {
         this.form = form;
     }
     
-    public detalle_pedido getComercio() {
+    public DetallePedido getComercio() {
         return detalle;
     }
 
-    public void setDetalle(detalle_pedido comercio) {
+    public void setDetalle(DetallePedido comercio) {
         this.detalle = comercio;
     }
     
@@ -100,10 +105,10 @@ public class GestorVistaFinalizarPedido  extends GestorVista {
     
     //////////////////////////////HASTA ACA//////////////////////////////////
   
-     public void initializeTabla(JTable tbl) {
-        String[] titulo={"","Deuda"};
-        String[] ancho ={"5","200"};
-        this.newModelTable(tbl,titulo,ancho);  
+     public void initializeTabla(JTable tblPedido) {
+        String[] titulo={"Mesa","Producto", "Estado"};
+        String[] ancho ={};
+        this.newModelTable(tblPedido,titulo,ancho);  
     } 
     
     
@@ -264,7 +269,7 @@ public class GestorVistaFinalizarPedido  extends GestorVista {
     
     // DESDE ACA
     public void finalizarPedido(){
-        this.gestor.finalizar();
+      //  this.gestor.finalizar();
     }
     //public class cerrarVentana{
         public void cerrarVentana(){

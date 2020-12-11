@@ -9,7 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.*;
 
-import Modelos.FinalizarPedido.detalle_pedido;
+import Modelos.FinalizarPedido.DetallePedido;
 import Modelos.FinalizarPedido.Mesa;
 import Modelos.FinalizarPedido.Estado;
 

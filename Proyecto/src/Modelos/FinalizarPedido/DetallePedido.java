@@ -18,7 +18,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table (name="detalle_pedido") 
-public class detalle_pedido {
+public class DetallePedido {
     
     @Id 
     @GeneratedValue(strategy=javax.persistence.GenerationType.AUTO)
@@ -38,10 +38,19 @@ public class detalle_pedido {
 //    @OneToMany (targetEntity = Mesa.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
 //    private Mesa mesa;
 
+//    public Mesa getMesa() {
+//        return mesa;
+//    }
+//
+//    public void setMesa(Mesa mesa) {
+//        this.mesa = mesa;
+//    }
+
     
-    public detalle_pedido() {
+    public DetallePedido() {
         
     }
+  
     
     
     public long getId() {
@@ -82,19 +91,19 @@ public class detalle_pedido {
         this.cantidad = cantidad;
     }
     
-    @ManyToOne (targetEntity = Estado.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
-    private Estado estado; 
-    
+//   @ManyToOne (targetEntity = Estado.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
+//    private Estado estado;
+//    
     public int getCodigo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
-    
-    public Estado getEstado() {
-        return estado;
-    }
+//    public void setEstado(Estado estado) {
+//        this.estado = estado;
+//    }
+//    
+//    public Estado getEstado() {
+//        return estado;
+//    }
     
 //    public void notificado() {
 //       this.setEstado(4);
@@ -103,16 +112,16 @@ public class detalle_pedido {
 //       this.setEstado(3); //Ver el numero de estado al cual hace referencia el listo para entregar
 //    }
         
-    public detalle_pedido(long idDetalle, String nombre_producto, String nombre_menu, int cantidad, Estado estado) {
+    public DetallePedido(long idDetalle, String nombre_producto, String nombre_menu, int cantidad, Estado estado) {
         this.idDetalle = idDetalle;
         this.nombre_producto = nombre_producto;
         this.nombre_menu = nombre_menu;
         this.cantidad = cantidad;
-        //this.mesa = mesa;
-        this.estado = estado;
+//        this.mesa = mesa;
+      //  this.estado = estado;
     }
    
-
+//se rompe con los estados, la otra es hardcodear los estados jeje
     
     
    }
