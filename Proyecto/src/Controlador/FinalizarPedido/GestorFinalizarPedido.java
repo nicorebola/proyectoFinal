@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 import org.hibernate.Session;
 import Modelos.FinalizarPedido.DetallePedido;
 import javax.swing.ListSelectionModel;
+import javax.swing.table.TableModel;
 
 public class GestorFinalizarPedido extends  GestorHibernate{
     private DetallePedido  model;  //Detalle o pedido VER
@@ -99,6 +100,7 @@ public class GestorFinalizarPedido extends  GestorHibernate{
     
      public DefaultTableModel obtenerTablaPedidos() {
         DefaultTableModel modelo = new DefaultTableModel();
+        JTable tabla = new JTable (modelo);
 
         ArrayList<DetallePedido> lista_pedidos = buscarObjetoPedido();
 
@@ -109,12 +111,14 @@ public class GestorFinalizarPedido extends  GestorHibernate{
         modelo.addColumn("Estado");
        
        
-       
+       //http://www.chuidiang.org/java/tablas/tablamodelo/tablamodelo.php
 
         for (int i = 0; i < lista_pedidos.size(); i++) {
 //            if(lista_pedidos.get(i).getEstado().getIdEstado()== 1){
 //           
 //            }
+    
+            
             Object[] fila = new Object[4];
             fila[0] = lista_pedidos.get(i).getNombre_producto();
             fila[1] = lista_pedidos.get(i).getNombre_menu();
