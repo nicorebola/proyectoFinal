@@ -21,15 +21,21 @@ public class FrmFinalizarPedido extends FrmGenerica {
     public FrmFinalizarPedido(GestorVistaFinalizarPedido gestorVista) {
         try{
            initComponents();
+          
            }
            catch(Exception e){
 
         }
         this.setGestorVista(gestorVista);
         this.onViewOpened();
+        this.cargarTabla();
     }
 
-    
+    public void cargarTabla() {
+       
+
+        tblPedido.setModel(gestorVista.gestor.obtenerTablaPedidos());
+    }
     public GestorVistaFinalizarPedido getGestorVista() {
         return gestorVista;
     }
@@ -41,14 +47,18 @@ public class FrmFinalizarPedido extends FrmGenerica {
     public FrmFinalizarPedido() {
         initComponents();
     }
-    
-    public void setJTable1(JTable jTable1){
-        this.jTable1 = jTable1;
+
+    public JTable getTblPedido() {
+        return tblPedido;
     }
-    public JTable getJTable1(){
-        return jTable1;
+
+    public void setTblPedido(JTable tblPedido) {
+        this.tblPedido = tblPedido;
     }
     
+   public void viewOpenedBotones() {
+        this.getGestorVista().initializeTabla(tblPedido);
+   }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -60,7 +70,7 @@ public class FrmFinalizarPedido extends FrmGenerica {
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(2, 0), new java.awt.Dimension(2, 0), new java.awt.Dimension(2, 32767));
         jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblPedido = new javax.swing.JTable();
         btnFinalizar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
@@ -72,19 +82,19 @@ public class FrmFinalizarPedido extends FrmGenerica {
         jLabel14.setForeground(new java.awt.Color(0, 204, 204));
         jLabel14.setText("_____________________________________________________");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblPedido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Pedidos"
+                "Title 1", "Title 2", "Title 3", "Pedidos"
             }
         ));
-        jTable1.setName("tablaPedidos"); // NOI18N
-        jScrollPane1.setViewportView(jTable1);
+        tblPedido.setName("tablaPedidos"); // NOI18N
+        jScrollPane1.setViewportView(tblPedido);
 
         btnFinalizar.setText("Finalizar Preparacion de Pedido");
         btnFinalizar.setName("btnFinalizar"); // NOI18N
@@ -191,24 +201,21 @@ public class FrmFinalizarPedido extends FrmGenerica {
     
     //VERR ---------------------LINEA 711 FRMVentanaAdmin--------------------------
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        int selectedRowIndex = jTable1.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tblPedido.getModel();
+        int selectedRowIndex = tblPedido.getSelectedRow();
         seleccionTxt.setText("Nombre: " + model.getValueAt(selectedRowIndex, 0).toString() + " "
                 + "Descripción: " + model.getValueAt(selectedRowIndex, 1).toString() + " "
                 + "ID: " + model.getValueAt(selectedRowIndex, 2).toString());
     }
    //-----------------------------------------------------
-    public static void main(String args[]) {
-            
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmFinalizarPedido().setVisible(true);
-                
+   
+@Override
+    public void onViewOpened() {
+     tblPedido.setModel(gestorVista.gestor.obtenerTablaPedidos());
+            this.viewOpenedBotones();
            
-            }
-        });
+       
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnFinalizar;
@@ -218,7 +225,7 @@ public class FrmFinalizarPedido extends FrmGenerica {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblPedido;
     // End of variables declaration//GEN-END:variables
     private javax.swing.JLabel seleccionTxt;
 }

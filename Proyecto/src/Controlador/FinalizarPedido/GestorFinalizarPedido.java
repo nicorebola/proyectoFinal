@@ -1,6 +1,10 @@
 package Controlador.FinalizarPedido;
 import Hibernate.GestorHibernate;
-import Modelos.FinalizarPedido.detalle_pedido;
+import Hibernate.HibernateUtil;
+import Hibernate.GestorHibernate;
+import Hibernate.HibernateUtil;
+import static Hibernate.HibernateUtil.getSession;
+import Modelos.FinalizarPedido.DetallePedido;
 import static Hibernate.HibernateUtil.getSession;
 import Util.UtilJtable;
 import java.util.*;
@@ -10,21 +14,35 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import Notificaciones.FinalizarPedido.PushNotifictionHelper;
+import javax.swing.table.DefaultTableModel;
+import org.hibernate.Session;
+import Modelos.FinalizarPedido.DetallePedido;
 
 public class GestorFinalizarPedido extends  GestorHibernate{
-    private detalle_pedido  model;  //Detalle o pedido VER
+    private DetallePedido  model;  //Detalle o pedido VER
     PushNotifictionHelper pushNot = new PushNotifictionHelper();
+    GestorHibernate gestorHibernate = new GestorHibernate();
   //  private GestorFinalizarPedido gestorFinalizarPedido = new GestorFinalizarPedido();
  //   private GestorVistaFinalizarPedido gestorVistaFinalizarPedido = new GestorVistaFinalizarPedido();
    
    
+     
+    public List<DetallePedido> listar() {
+        return this.listarClase(DetallePedido.class);
+    }
     
+      public List <DetallePedido> listar(DetallePedido detalle_pedido){   
+          Criteria crit = getSession().createCriteria(DetallePedido.class)
+                   .add (Restrictions.eq("nombre_producto",detalle_pedido))  
+                  .add (Restrictions.eq("estado",0));
+        return crit.list();
+    }
  
-    public detalle_pedido  getModel() {
+    public DetallePedido  getModel() {
         return model;
     }
 
-    public void setModel(detalle_pedido  model) {
+    public void setModel(DetallePedido  model) {
         this.model = model;
     }
 
@@ -78,11 +96,42 @@ public class GestorFinalizarPedido extends  GestorHibernate{
 //        this.getModel().setItems(detalle);
 //    }
     
+     public DefaultTableModel obtenerTablaPedidos() {
+        DefaultTableModel modelo = new DefaultTableModel();
+
+        ArrayList<DetallePedido> lista_pedidos = buscarObjetoPedido();
+
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("ID Detalle");
+       modelo.addColumn("Nombre producto");
+
+        for (int i = 0; i < lista_pedidos.size(); i++) {
+            Object[] fila = new Object[3];
+            fila[0] = lista_pedidos.get(i).getCantidad();
+            fila[1] = lista_pedidos.get(i).getId();
+            fila[2] = lista_pedidos.get(i).getNombre_producto();
+            
+
+            modelo.addRow(fila);
+        }
+        return modelo;
+    }
+
+    public ArrayList<DetallePedido> buscarObjetoPedido() {
+        Session s = gestorHibernate.getSession();
+        Criteria crit = s.createCriteria(DetallePedido.class);
+        ArrayList<DetallePedido> detalle_pedido = (ArrayList<DetallePedido>) crit.list();
+
+        return detalle_pedido;
+    }
+      
+   
+
    ///////////////////////////////////////////////////////////////
        
     // Altas, bajas y modificaciones 
     public void newModel() {
-         this.setModel(new detalle_pedido());
+         this.setModel(new DetallePedido());
     }
 //
 //   
@@ -118,31 +167,24 @@ public class GestorFinalizarPedido extends  GestorHibernate{
    // busquedas, iteradores y otras 
     
     
-    public List <detalle_pedido> listar(){   
-        return this.listarClase(detalle_pedido.class,"codigo",0);
-    }
+   
         
     
-        public List <detalle_pedido> listar(detalle_pedido detalle_pedido){   
-          Criteria crit = getSession().createCriteria(detalle_pedido.class)
-                   .add (Restrictions.eq("tipoProyecto",detalle_pedido))  
-                  .add (Restrictions.eq("estado",0));
-        return crit.list();
-    }
+  
     
     public DefaultComboBoxModel getComboModel() {      
         DefaultComboBoxModel auxModel= new DefaultComboBoxModel();
         auxModel.addElement("");
-        for (detalle_pedido auxTipo : this.listar()) {
+        for (DetallePedido auxTipo : this.listar()) {
             auxModel.addElement(auxTipo);
         }
          return auxModel;
     }  
     
-    public DefaultComboBoxModel getComboModel(detalle_pedido detalle_pedido) {      
+    public DefaultComboBoxModel getComboModel(DetallePedido detalle_pedido) {      
         DefaultComboBoxModel auxModel= new DefaultComboBoxModel();
         auxModel.addElement("");
-        for (detalle_pedido auxTipo : this.listar()) {
+        for (DetallePedido auxTipo : this.listar()) {
  
               
                 auxModel.addElement(auxTipo); 
@@ -153,7 +195,7 @@ public class GestorFinalizarPedido extends  GestorHibernate{
     
      public int getUltimoCodigo(){
           try {
-           detalle_pedido auxModel= (detalle_pedido) this.listarUltimo(detalle_pedido.class).get(0);
+           DetallePedido auxModel= (DetallePedido) this.listarUltimo(DetallePedido.class).get(0);
            return auxModel.getCodigo();
         }
         catch(Exception e){
@@ -162,14 +204,14 @@ public class GestorFinalizarPedido extends  GestorHibernate{
 
     }
 //Posiblemente no se use
-    public detalle_pedido buscarCodigo(String codigo) {
+    public DetallePedido buscarCodigo(String codigo) {
         return this.buscarCodigo(Integer.valueOf(codigo));
     }
    
-    public detalle_pedido buscarCodigo(int codigo) {
-       detalle_pedido  auxModel=null;
+    public DetallePedido buscarCodigo(int codigo) {
+       DetallePedido  auxModel=null;
        try {
-          auxModel= (detalle_pedido) this.listarClaseCodigo(detalle_pedido.class, codigo).get(0);
+          auxModel= (DetallePedido) this.listarClaseCodigo(DetallePedido.class, codigo).get(0);
           return auxModel;}
        catch(Exception e){
           return auxModel;

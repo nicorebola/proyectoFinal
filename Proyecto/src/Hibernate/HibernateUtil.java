@@ -44,7 +44,7 @@ public class HibernateUtil  {
             conf.addPackage("Modelos.FinalizarPedido");
           //  
            // 
-            conf.addAnnotatedClass(Modelos.FinalizarPedido.detalle_pedido.class);
+            conf.addAnnotatedClass(Modelos.FinalizarPedido.DetallePedido.class);
             conf.addAnnotatedClass(Modelos.FinalizarPedido.Mesa.class);
             conf.addAnnotatedClass(Modelos.FinalizarPedido.Estado.class);
            

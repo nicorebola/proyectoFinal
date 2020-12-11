@@ -31,13 +31,13 @@ public class Mesa {
         return descripcion;
     }
     
-    public detalle_pedido getDetalle() {
+    public DetallePedido getDetalle() {
         return detalle;
     }
     
    
-    @ManyToOne (targetEntity = detalle_pedido.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
-    private detalle_pedido detalle;
+    @ManyToOne (targetEntity = DetallePedido.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
+    private DetallePedido detalle;
     
      public void setIdMesa(long idMesa) {
         this.idMesa = idMesa;
@@ -47,11 +47,11 @@ public class Mesa {
         this.descripcion = descripcion;
     }
      
-    public void setDetalle(detalle_pedido detalle) {
+    public void setDetalle(DetallePedido detalle) {
         this.detalle = detalle;
     }
 
-    public Mesa(long idMesa, String descripcion, detalle_pedido detalle) {
+    public Mesa(long idMesa, String descripcion, DetallePedido detalle) {
         this.idMesa = idMesa;
         this.descripcion = descripcion;
         this.detalle = detalle;
