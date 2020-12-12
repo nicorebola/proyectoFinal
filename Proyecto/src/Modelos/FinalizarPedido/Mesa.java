@@ -32,9 +32,9 @@ public class Mesa {
     public String getDescripcion() {
         return descripcion;
     }
-    @OneToMany(targetEntity = DetallePedido.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-     private Set<DetallePedido> detallePedido = new HashSet();
-    
+//    @OneToMany(targetEntity = DetallePedido.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//     private Set<DetallePedido> detallePedido = new HashSet();
+//    
     
    
    
