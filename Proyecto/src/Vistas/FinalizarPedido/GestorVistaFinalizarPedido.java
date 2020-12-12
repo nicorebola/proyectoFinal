@@ -105,11 +105,11 @@ public class GestorVistaFinalizarPedido  extends GestorVista {
     
     //////////////////////////////HASTA ACA//////////////////////////////////
   
-     public void initializeTabla(JTable tblPedido) {
-        String[] titulo={"Mesa","Producto", "Estado"};
-        String[] ancho ={};
-        this.newModelTable(tblPedido,titulo,ancho);  
-    } 
+//     public void initializeTabla(JTable tblPedido) {
+//        String[] titulo={"Mesa","Producto", "Estado"};
+//        String[] ancho ={};
+//        this.newModelTable(tblPedido,titulo,ancho);  
+//    } 
     
     
     @Override
@@ -198,6 +198,7 @@ public class GestorVistaFinalizarPedido  extends GestorVista {
         this.setTitulo(this.getForm().getTitle());
         this.getEscritorio().add(this.getForm());
         this.getForm().setVisible(true);
+         
     }
       
     @Override
