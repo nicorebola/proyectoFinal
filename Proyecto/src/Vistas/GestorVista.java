@@ -3,6 +3,7 @@ package Vistas;
 import GUtilr.mdi.MDIForm;
 import Interfaz.GVista;
 import Util.UtilJtable;
+import Vistas.FinalizarPedido.FrmFinalizarPedido;
 import ireport.GestorDeReportes;
 import java.util.*;
 import javax.swing.*;
@@ -284,7 +285,7 @@ public class GestorVista implements GVista {
 
     @Override
     public void openFormulario(JDesktopPane escritorio) {
-
+        
     }
  
     public void newModelTable(JTable tbl, String[] titulo, String[] ancho) {

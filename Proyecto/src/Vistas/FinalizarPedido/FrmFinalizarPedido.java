@@ -75,7 +75,9 @@ public class FrmFinalizarPedido extends FrmGenerica {
         btnFinalizar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
+        setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setMaximizable(true);
         setTitle("Finalizar Preparacion de Pedido");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
@@ -90,6 +92,8 @@ public class FrmFinalizarPedido extends FrmGenerica {
         }
         setVerifyInputWhenFocusTarget(false);
         setVisible(true);
+
+        jDesktopPane1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel3.setText("Finalizar Preparacion de Pedido");
@@ -198,7 +202,9 @@ public class FrmFinalizarPedido extends FrmGenerica {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();

@@ -94,7 +94,7 @@ public class FrmPrincipal extends  javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnuProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuProyectoActionPerformed
-        this.gestorVista.abrirProyecto(getEscritorio());
+        this.gestorVista.abrirProyecto(getEscritorio());    
     }//GEN-LAST:event_mnuProyectoActionPerformed
 
 public static void main(String args[]) {

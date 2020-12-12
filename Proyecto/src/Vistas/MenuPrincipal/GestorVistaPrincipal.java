@@ -18,7 +18,7 @@ public class GestorVistaPrincipal extends GestorVista{
 
         
     public void abrirProyecto(JDesktopPane escritorio ) {
-        GestorVistaFinalizarPedido gestor= new GestorVistaFinalizarPedido();
+        GestorVistaFinalizarPedido gestor = new GestorVistaFinalizarPedido();
         gestor.openFormulario(escritorio);
     }
 

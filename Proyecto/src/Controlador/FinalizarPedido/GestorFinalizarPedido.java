@@ -17,6 +17,7 @@ import Notificaciones.FinalizarPedido.PushNotifictionHelper;
 import javax.swing.table.DefaultTableModel;
 import org.hibernate.Session;
 import Modelos.FinalizarPedido.DetallePedido;
+import javax.swing.JDesktopPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableModel;
 
@@ -119,12 +120,12 @@ public class GestorFinalizarPedido extends  GestorHibernate{
 //            }
     
             
-            Object[] fila = new Object[5];
+            Object[] fila = new Object[4];
             fila[0] = lista_pedidos.get(i).getNombre_producto();
             fila[1] = lista_pedidos.get(i).getNombre_menu();
             fila[2] = lista_pedidos.get(i).getCantidad();
             fila[3] = lista_pedidos.get(i).getId();
-           fila[4] = lista_pedidos.get(i).getEstado().getIdEstado();
+           //fila[4] = lista_pedidos.get(i).getEstado().getIdEstado();
 
             modelo.addRow(fila);
         }
@@ -247,7 +248,6 @@ public class GestorFinalizarPedido extends  GestorHibernate{
        
       
       PushNotifictionHelper.pushFCMNotification("cGOrtlJwPWQ:APA91bH6DpNbjyDn76_DOuq56G7YqNyUooUOtZvGIr7mCdEmJEj58KcdBTrAR1zOCm50Igo6L7yOY7iiZjHHJNZvdzE0nWpUuphbGXcQ2e6itsTN6sLka27_sw2tx8XoBRZgC0HL2-cB"," 2"," Coca Cola con Hamburgesa");
-    ;
     //    int[] seleccionados = tblPedido.getSelectedRows(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
     // Esto lo saqué de internet. https://es.stackoverflow.com/questions/46227/seleccionar-varias-filas-alternas-en-una-jtable
         
@@ -270,4 +270,8 @@ public class GestorFinalizarPedido extends  GestorHibernate{
 //    }
 //    
 //    private javax.swing.JTable tblPedido;
+
+    public void openFormulario(JDesktopPane pantalla) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
