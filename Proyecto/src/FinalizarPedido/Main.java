@@ -5,6 +5,7 @@ import Hibernate.HibernateUtil;
 import Controlador.FinalizarPedido.GestorTipoProyecto;
 import Modelos.FinalizarPedido.TipoProyecto;
 import Vistas.MenuPrincipal.GestorVistaPrincipal;
+import javax.swing.JFrame;
 
 public class Main {
 
@@ -12,6 +13,7 @@ public class Main {
         HibernateUtil.inicializar();
         GestorVistaPrincipal gestorVista = new GestorVistaPrincipal();
         gestorVista.abrirPrincipal();
+        
 //        initializeTipoProyectos();
 //        initializeProyectos();
         
