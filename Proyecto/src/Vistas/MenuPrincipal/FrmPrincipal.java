@@ -33,8 +33,6 @@ public class FrmPrincipal extends  javax.swing.JFrame {
     private void initComponents() {
 
         escritorio = new javax.swing.JDesktopPane();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jmenu = new javax.swing.JMenuBar();
         mnConfiguracion = new javax.swing.JMenu();
@@ -43,22 +41,12 @@ public class FrmPrincipal extends  javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ejemplo");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/restaurante.png"))); // NOI18N
-        escritorio.add(jLabel2);
-        jLabel2.setBounds(500, 20, 520, 560);
-
-        jLabel3.setFont(new java.awt.Font("Limelight", 1, 48)); // NOI18N
-        jLabel3.setText("Restaurante System");
-        jLabel3.setAlignmentX(0.5F);
-        escritorio.add(jLabel3);
-        jLabel3.setBounds(490, 570, 590, 90);
-
         jLabel1.setText("jLabel1");
 
         jmenu.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
 
+        mnConfiguracion.setText("Configuración");
         mnConfiguracion.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
-        mnConfiguracion.setLabel("Opciones");
 
         mnuProyecto.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         mnuProyecto.setLabel("Finalizar Preparacion de Pedido");
@@ -77,17 +65,11 @@ public class FrmPrincipal extends  javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 1369, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 1393, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 863, Short.MAX_VALUE)
         );
 
         pack();
@@ -108,8 +90,6 @@ public static void main(String args[]) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jmenu;
     private javax.swing.JMenu mnConfiguracion;
     private javax.swing.JMenuItem mnuProyecto;
