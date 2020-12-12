@@ -1,5 +1,6 @@
 package Modelos.FinalizarPedido;
 
+import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,8 +14,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table (name="estado") 
-public class Estado {
-    @Id @GeneratedValue(strategy=javax.persistence.GenerationType.AUTO) 
+public class Estado implements Serializable{
+    @Id
+    @GeneratedValue(strategy=javax.persistence.GenerationType.AUTO) 
     private long idEstado;
     
     @Column(columnDefinition = "TEXT")

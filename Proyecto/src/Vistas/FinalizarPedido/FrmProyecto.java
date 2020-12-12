@@ -146,7 +146,7 @@ public class FrmProyecto extends FrmGenerica {
         this.viewCamposEnabled(false);
         this.viewDenominacionVisible(true);
         this.cargarCombos();
-        this.getGestorVista().initializeTabla(tbl);
+      //  this.getGestorVista().initializeTabla(tbl);
          this.isExtra();
         
      }
@@ -243,7 +243,7 @@ public class FrmProyecto extends FrmGenerica {
         txtDenominacion.setText("");
         txtCodigo.setText("");
         this.cmbTipoProyecto.setSelectedItem("");
-         this.getGestorVista().initializeTabla(tbl);
+     //    this.getGestorVista().initializeTabla(tbl);
     }
   
     void clearItemView() {

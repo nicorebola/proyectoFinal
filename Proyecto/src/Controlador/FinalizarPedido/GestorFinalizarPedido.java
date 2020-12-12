@@ -119,12 +119,12 @@ public class GestorFinalizarPedido extends  GestorHibernate{
 //            }
     
             
-            Object[] fila = new Object[4];
+            Object[] fila = new Object[5];
             fila[0] = lista_pedidos.get(i).getNombre_producto();
             fila[1] = lista_pedidos.get(i).getNombre_menu();
             fila[2] = lista_pedidos.get(i).getCantidad();
             fila[3] = lista_pedidos.get(i).getId();
-            //fila[4] = lista_pedidos.get(i).getEstado().getIdEstado();
+           fila[4] = lista_pedidos.get(i).getEstado().getIdEstado();
 
             modelo.addRow(fila);
         }

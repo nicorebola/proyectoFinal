@@ -1,6 +1,8 @@
 
 package Modelos.FinalizarPedido;
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,14 +32,12 @@ public class Mesa {
     public String getDescripcion() {
         return descripcion;
     }
+    @OneToMany(targetEntity = DetallePedido.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+     private Set<DetallePedido> detallePedido = new HashSet();
     
-    public DetallePedido getDetalle() {
-        return detalle;
-    }
     
    
-    @ManyToOne (targetEntity = DetallePedido.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
-    private DetallePedido detalle;
+   
     
      public void setIdMesa(long idMesa) {
         this.idMesa = idMesa;
@@ -47,14 +47,11 @@ public class Mesa {
         this.descripcion = descripcion;
     }
      
-    public void setDetalle(DetallePedido detalle) {
-        this.detalle = detalle;
-    }
-
-    public Mesa(long idMesa, String descripcion, DetallePedido detalle) {
+  
+    public Mesa(long idMesa, String descripcion) {
         this.idMesa = idMesa;
         this.descripcion = descripcion;
-        this.detalle = detalle;
+       
         
     }
     

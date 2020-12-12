@@ -17,25 +17,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@Entity(name = "DetallePedido")
+@Entity 
 @Table (name="detalle_pedido") 
 public class DetallePedido {
     
-    public DetallePedido() {
-        
-    }
     
-    public DetallePedido(long idDetalle, String nombre_producto, String nombre_menu, int cantidad, Estado estado) {
-        this.idDetalle = idDetalle;
-        this.nombre_producto = nombre_producto;
-        this.nombre_menu = nombre_menu;
-        this.cantidad = cantidad;
-        this.estado = estado;
-    }
    
-//se rompe con los estados, la otra es hardcodear los estados jeje.
-    //jajaj si che, lo deje igualmente para ver, estuve intentando varias cosas, pero no hay forma
-    
     
     @Id 
     @GeneratedValue(strategy=javax.persistence.GenerationType.AUTO)
@@ -50,11 +37,12 @@ public class DetallePedido {
     @Column(columnDefinition = "INT")
     private int cantidad;
     
-   @ManyToOne (fetch = FetchType.LAZY)
-   @JoinColumn(name = "estado_idestado")
+  
+   @OneToOne (targetEntity = Estado.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
    private Estado estado;
    
-   
+   @ManyToOne (targetEntity = Mesa.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
+   private Mesa mesa;
 //   public int valorEstadoDetalle(){
 //    int valorEstado = (int) estado.getIdEstado();
 //    
@@ -106,7 +94,19 @@ public class DetallePedido {
     public int getCodigo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    public DetallePedido() {
+        
+    }
+    
+    public DetallePedido(long idDetalle, String nombre_producto, String nombre_menu, int cantidad, Estado estado, Mesa mesa) {
+        this.idDetalle = idDetalle;
+        this.nombre_producto = nombre_producto;
+        this.nombre_menu = nombre_menu;
+        this.cantidad = cantidad;
+        this.estado = estado;
+        this.mesa = mesa;
+    }
     
 //    public void notificado() {
 //       this.setEstado(4);
