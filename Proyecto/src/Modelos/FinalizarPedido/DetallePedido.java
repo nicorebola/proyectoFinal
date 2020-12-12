@@ -38,11 +38,11 @@ public class DetallePedido {
     private int cantidad;
     
   
-  // @OneToOne (targetEntity = Estado.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
-  // private Estado estado;
+   @OneToOne (targetEntity = Estado.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
+   private Estado estado;
    
- //  @ManyToOne (targetEntity = Mesa.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
-//   private Mesa mesa;
+   @ManyToOne (targetEntity = Mesa.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
+   private Mesa mesa;
 //   public int valorEstadoDetalle(){
 //    int valorEstado = (int) estado.getIdEstado();
 //    
@@ -50,13 +50,21 @@ public class DetallePedido {
 //   // esto es una boludes lo que intente, peero por ahi nos ayuda jaja   
 //   }
    
-//    public void setEstado(Estado estado) {
-//        this.estado = estado;
-//    }
-//   
-//    public Estado getEstado() {
-//        return estado;
-//    }  
+   public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+   
+    public Estado getEstado() {
+       return estado;
+    }  
+    
+     public void setMesa(Mesa mesa) {
+        this.mesa = mesa;
+    }
+   
+    public Mesa getMesa() {
+       return mesa;
+    }  
     
     public long getId() {
         return idDetalle;
@@ -104,8 +112,8 @@ public class DetallePedido {
         this.nombre_producto = nombre_producto;
         this.nombre_menu = nombre_menu;
         this.cantidad = cantidad;
-       // this.estado = estado;
-        //this.mesa = mesa;
+        this.estado = estado;
+        this.mesa = mesa;
     }
     
 //    public void notificado() {
